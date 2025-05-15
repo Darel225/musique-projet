@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>say ok</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="audio-player">
+        <H1>Bienvenue</H1>
+        <div id="notification" class="notification" style="display: none;">
+            <span id="notification-text"></span>
+            <button class="close-btn" onclick="hideNotification()">x</button>
+        </div>
+
+        <input type="file" id="fileInput" multiple accept="audio/*" onchange="loadFiles(event)" hidden>
+        <button onclick="document.getElementById('fileInput').click()" class="choose-song-btn">
+            <i class="fas fa-folder-open"></i> choose
+        </button>        
+
+        <div class="playlist" id="playlist"></div>
+
+        <div class="progress-container">
+            <span id="current-time">0:00</span>
+            <input type="range" id="progress-bar" min="0" max="100" value="0" class="progress-bar" onchange="seekAudio()">
+            <span id="total-duration">0:00</span>
+        </div>
+
+        <div class="player-controls">
+            <button class="control-btn" onclick="prevTrack()">
+                <i class="fas fa-backward"></i>
+            </button>
+            <button class="control-btn" onclick="playPause()">
+                <i class="fas fa-play" id="play-icon"></i>
+            </button>
+            <button class="control-btn" onclick="nextTrack()">
+                <i class="fas fa-forward"></i>
+            </button>
+            <button class="control-btn stop-btn" onclick="stopPlayback()">
+                <i class="fas fa-stop" id="stop-icon"></i>
+            </button>
+        </div>
+
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" onchange="changeVolume()" class="slider">
+        <div class="volume-display">volume: <span id="volume-display">50%</span></div>
+        <input type="range" id="speed" min="0.5" max="2" step="0.1" value="1" onchange="changeSpeed()" class="slider">
+        <div class="volume-display">speed: <span id="speed-display">1x</span></div>
+    </div>
+
+    <script src="deni.js"></script>
+</body>
+</html>
+            
